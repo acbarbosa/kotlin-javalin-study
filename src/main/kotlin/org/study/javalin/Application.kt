@@ -14,6 +14,7 @@ class Application {
 
     private fun getRoutes() {
         get("/") { context -> context.result("Hello World") }
+        get("info") { }
     }
 }
 
