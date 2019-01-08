@@ -7,3 +7,9 @@ Para rodar a aplicação, no terminal execute:
 ```bash
 ./gradlew run
 ```
+
+# Acessando a aplicação
+Para acessar o serviço disponibilizado pela aplicação, abrir o browser a seguinte url:
+```
+http://localhost:7000
+```
