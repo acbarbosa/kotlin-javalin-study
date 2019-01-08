@@ -41,6 +41,7 @@ dependencies {
     implementation('org.jetbrains.kotlin:kotlin-reflect')
 
     compile('io.javalin:javalin:2.5.0')
+    compile('org.slf4j:slf4j-simple:1.7.25')
 
     testImplementation('org.junit.jupiter:junit-jupiter-api')
     testRuntimeOnly('org.junit.jupiter:junit-jupiter-engine')
