@@ -1,10 +1,24 @@
 package org.study.javalin
 
 import io.javalin.Javalin
+import io.javalin.apibuilder.ApiBuilder.get
 
-const val PORT = 7000
+const val DEFAULT_PORT = 7000
+
+class Application {
+    val app: Javalin
+
+    init {
+        app = Javalin.create()
+        app.routes { getRoutes() }
+    }
+
+    private fun getRoutes() {
+        get("/") { context -> context.result("Hello World") }
+    }
+}
 
 fun main(vararg args: String) {
-    val app = Javalin.create().start(PORT)
-    app.get("/") { ctx -> ctx.result("Hello World") }
+    val application = Application()
+    application.app.start(DEFAULT_PORT)
 }
