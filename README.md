@@ -13,3 +13,14 @@ Para acessar o serviço disponibilizado pela aplicação, abrir o browser a segu
 ```
 http://localhost:7000
 ```
+
+# Executando verificações
+O projeto está configurado para executar três tipos de verificações:
+* Testes unitários
+* Testes de aceitação
+* Análise estática de código
+
+Para executar todas as verificações, basta executar:
+```bash
+./gradlew check
+```

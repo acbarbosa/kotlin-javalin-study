@@ -6,11 +6,10 @@ import io.javalin.apibuilder.ApiBuilder.get
 const val DEFAULT_PORT = 7000
 
 class Application {
-    val app: Javalin
+    val server: Javalin = Javalin.create()
 
     init {
-        app = Javalin.create()
-        app.routes { getRoutes() }
+        server.routes { getRoutes() }
     }
 
     private fun getRoutes() {
@@ -18,7 +17,12 @@ class Application {
     }
 }
 
-fun main(vararg args: String) {
+fun startServer(): Application {
     val application = Application()
-    application.app.start(DEFAULT_PORT)
+    application.server.start(DEFAULT_PORT)
+    return application
+}
+
+fun main(vararg args: String) {
+    startServer()
 }
