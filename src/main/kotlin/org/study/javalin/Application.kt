@@ -3,12 +3,14 @@ package org.study.javalin
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.json.JavalinJackson
+import org.slf4j.LoggerFactory
 
 const val DEFAULT_PORT = 7000
 
 class Application {
     val server: Javalin = Javalin.create()
-    
+    val log = LoggerFactory.getLogger(Application::class.java)
+
     init {
         server.routes { getRoutes() }
     }
