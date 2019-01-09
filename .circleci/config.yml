@@ -8,3 +8,9 @@ jobs:
       - run: ./gradlew check
       - store-test-results:
           path: build/test-results
+      - store-artifacts:
+          path: build/reports/tests/acceptanceTest
+          prefix: acceptanceTest
+      - store-artifacts:
+          path: build/reports/detekt/detekt.html
+          prefix: staticAnalysis
