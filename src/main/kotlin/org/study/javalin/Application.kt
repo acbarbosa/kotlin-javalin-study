@@ -3,6 +3,7 @@ package org.study.javalin
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.json.JavalinJackson
+import org.eclipse.jetty.http.HttpStatus
 import org.slf4j.LoggerFactory
 
 const val DEFAULT_PORT = 7000
@@ -19,7 +20,7 @@ class Application {
         get("/") {  context -> context.result("Hello World") }
         get("info") {
             context -> val jsonObject = object {var app = "Hello, World"};
-            context.status(200).json(JavalinJackson.toJson(jsonObject));
+            context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject));
         }
     }
 }
