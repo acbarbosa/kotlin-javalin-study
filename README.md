@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/acbarbosa/kotlin-javalin-study/tree/master.svg?style=svg)](https://circleci.com/gh/acbarbosa/kotlin-javalin-study/tree/master)
+
 # Estudos de Kotlin e Javalin
 O objetivo deste repositório é propiciar uma forma de estudo de Kotlin e Javalin,
 de forma a permitir uma rápida familiarização a estas tecnologias.
