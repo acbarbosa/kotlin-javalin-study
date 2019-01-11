@@ -4,7 +4,6 @@ import com.github.kittinunf.fuel.Fuel
 import org.assertj.core.api.Assertions.assertThat
 import org.eclipse.jetty.http.HttpStatus
 import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertNotNull
 import java.nio.charset.Charset
 
