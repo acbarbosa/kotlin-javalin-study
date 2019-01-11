@@ -6,6 +6,7 @@ import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.json.JavalinJackson
 import org.eclipse.jetty.http.HttpStatus
 import org.slf4j.LoggerFactory
+import org.study.javalin.controllers.ResourceController
 
 const val DEFAULT_PORT = 7000
 
@@ -20,12 +21,17 @@ class Application {
     private fun getRoutes() {
         get("/") { context -> context.result("Hello World") }
         get("info") {
-            context -> val jsonObject = object { var app = "Hello, World" }
-            context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject))
+            context ->
+                val jsonObject = object { var app = "Hello, World" }
+                context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject))
         }
 
         path("resources") {
-            get() { ctx -> ctx.result("Show all resources") }
+            get() {
+                context ->
+                    val resources = ResourceController().all()
+                    context.status(HttpStatus.OK_200).json(resources)
+            }
         }
     }
 }
