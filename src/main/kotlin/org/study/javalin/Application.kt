@@ -2,6 +2,7 @@ package org.study.javalin
 
 import io.javalin.Javalin
 import io.javalin.apibuilder.ApiBuilder.get
+import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.json.JavalinJackson
 import org.eclipse.jetty.http.HttpStatus
 import org.slf4j.LoggerFactory
@@ -17,10 +18,14 @@ class Application {
     }
 
     private fun getRoutes() {
-        get("/") {  context -> context.result("Hello World") }
+        get("/") { context -> context.result("Hello World") }
         get("info") {
-            context -> val jsonObject = object {var app = "Hello, World"};
-            context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject));
+            context -> val jsonObject = object { var app = "Hello, World" }
+            context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject))
+        }
+
+        path("resources") {
+            get() { ctx -> ctx.result("Show all resources") }
         }
     }
 }
