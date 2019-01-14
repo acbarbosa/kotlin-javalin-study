@@ -21,9 +21,7 @@ class Application {
     private fun getRoutes() {
         get("/") { context -> context.result("Hello World") }
         get("info") {
-            context ->
-                val jsonObject = object { var app = "Hello, World" }
-                context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject))
+            it.status(HttpStatus.OK_200).json(JavalinJackson.toJson(object { var app = "Hello, World" }))
         }
         get("health") {
             it.json(object { var status = "UP" }).status(HttpStatus.OK_200)
