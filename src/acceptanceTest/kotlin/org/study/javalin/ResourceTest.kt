@@ -21,4 +21,16 @@ class ResourceTest {
         assertThat(bodyValue).isEqualTo(expectedBody)
         assertNotNull(response)
     }
+
+    @Test
+    fun `should receive successfully a resource object data`() {
+        val request = Fuel.get("$baseUrl/resources/1")
+        val response = request.response().second
+        val expectedBody = """{"id":1,"title":"O Mundo de Sofia","description":"História sobre uma garota que aprender filosofia através de cartas anônimas","type":"BOOK"}"""
+        val responseBodyMatch = "Body : \\((.*)\\)".toRegex().find(response.toString())
+        val (_, bodyValue) = responseBodyMatch!!.groupValues
+        assertThat(response.statusCode).isEqualTo(HttpStatus.OK_200)
+        assertThat(bodyValue).isEqualTo(expectedBody)
+        assertNotNull(response)
+    }
 }

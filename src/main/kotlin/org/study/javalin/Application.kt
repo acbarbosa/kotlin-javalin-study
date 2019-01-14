@@ -32,6 +32,13 @@ class Application {
                     val resources = ResourceController().all()
                     context.status(HttpStatus.OK_200).json(resources)
             }
+            path(":id", {
+                get() {
+                    context ->
+                    context.status(HttpStatus.OK_200)
+                    .json(ResourceController().getResource())
+                }
+            })
         }
     }
 }
