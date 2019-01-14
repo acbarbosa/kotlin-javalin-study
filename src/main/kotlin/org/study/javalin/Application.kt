@@ -25,17 +25,17 @@ class Application {
                 val jsonObject = object { var app = "Hello, World" }
                 context.status(HttpStatus.OK_200).json(JavalinJackson.toJson(jsonObject))
         }
-
+        get("health") {
+            it.json(object { var status = "UP" }).status(HttpStatus.OK_200)
+        }
         path("resources") {
             get() {
-                context ->
-                    context.status(HttpStatus.OK_200)
-                    .json(ResourceController().all())
+                it.status(HttpStatus.OK_200)
+                .json(ResourceController().all())
             }
             path(":id", {
                 get() {
-                    context ->
-                    context.status(HttpStatus.OK_200)
+                    it.status(HttpStatus.OK_200)
                     .json(ResourceController().getResource())
                 }
             })
