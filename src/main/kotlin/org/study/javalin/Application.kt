@@ -8,7 +8,7 @@ import org.eclipse.jetty.http.HttpStatus
 import org.slf4j.LoggerFactory
 import org.study.javalin.controllers.ResourceController
 
-const val DEFAULT_PORT = 7000
+const val DEFAULT_PORT = 7001
 
 class Application {
     val server: Javalin = Javalin.create()
